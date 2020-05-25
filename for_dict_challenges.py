@@ -81,7 +81,7 @@ school_12 = [
     {'class': '2a', 'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}]},
     {'class': '3c', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]},
 ]
-is_male = {
+is_male_1 = {
     'Маша': False,
     'Оля': False,
     'Олег': True,
@@ -89,7 +89,7 @@ is_male = {
 }
 
 
-def count_boy_gerl(school_12, is_male):
+def count_boy_gerl(school_12, is_male_1):
     class_dict = {}
     class_gender_count = []
     boy = 0
@@ -99,21 +99,19 @@ def count_boy_gerl(school_12, is_male):
         students_in_class = class_school['students']
         for name_dic_3 in students_in_class:
             for name in name_dic_3.values():
-                if is_male[name] is True:
+                if is_male_1[name] is True:
                     boy += 1
                 else:
                     gerl += 1
-        class_dict['class'] = num_class
-        class_dict['boy'] = boy
-        class_dict['gerl'] = gerl
+                class_dict['class'] = num_class
+                class_dict['boy'] = boy
+                class_dict['gerl'] = gerl
         class_gender_count.append(class_dict)
     return class_gender_count
-a = count_boy_gerl(school_12, is_male)
-print(a)
 
 
-# c = count_boy_gerl(school_12, is_male)
-# print(c)
+c = count_boy_gerl(school_12, is_male_1)
+print(c)
 
 # for class_in_school in school:
 #     class_name = class_in_school['class']
@@ -128,7 +126,7 @@ print(a)
 
 # Задание 5
 # По информации о учениках разных классов нужно найти класс, в котором больше всего девочек и больше всего мальчиков.
-school = [
+school_13 = [
     {'class': '2a', 'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}]},
     {'class': '3c', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]},
 
@@ -139,47 +137,49 @@ is_male = {
     'Олег': True,
     'Миша': True,
 }
-count = 0
-count_class = []
-class_name_all = []
-for class_in_school in school:
-    class_name = class_in_school['class']
-    class_name_all.append(class_name)
-# print(class_name_all)
-while count < len(school):
-    count += 1
-    for class_in_school in school:
-        boy = 0
-        gerl = 0
-        students_in_class = class_in_school['students']
-        for name_dic_3 in students_in_class:
-            for name in name_dic_3.values():
-                if is_male[name] == False:
-                    boy += 1
-                else:
-                    gerl += 1
-        count_class.append(boy)
-        count_class.append(gerl)
-    # print(count_class)
-    break
-boy_in_class = []
-gerl_in_class = []
-for index_1, valeu in enumerate(count_class, 1):
-    if index_1 % 2 != 0:
-        boy_in_class.append(valeu)
-    else:
-        gerl_in_class.append(valeu)
-# print(boy_in_class,gerl_in_class)
+# dict_school = count_boy_gerl(school_12 = school_13,is_male_1 = is_male)
+# print(dict_school)
+# count = 0
+# count_class = []
+# class_name_all = []
+# for class_in_school in school:
+#     class_name = class_in_school['class']
+#     class_name_all.append(class_name)
+# # print(class_name_all)
+# while count < len(school):
+#     count += 1
+#     for class_in_school in school:
+#         boy = 0
+#         gerl = 0
+#         students_in_class = class_in_school['students']
+#         for name_dic_3 in students_in_class:
+#             for name in name_dic_3.values():
+#                 if is_male[name] == False:
+#                     boy += 1
+#                 else:
+#                     gerl += 1
+#         count_class.append(boy)
+#         count_class.append(gerl)
+#     # print(count_class)
+#     break
+# boy_in_class = []
+# gerl_in_class = []
+# for index_1, valeu in enumerate(count_class, 1):
+#     if index_1 % 2 != 0:
+#         boy_in_class.append(valeu)
+#     else:
+#         gerl_in_class.append(valeu)
+# # print(boy_in_class,gerl_in_class)
 
-boy_max_inclass = max(boy_in_class)
-find_index_name_class = boy_in_class.index(boy_max_inclass)
-find_class_1 = class_name_all[find_index_name_class]
-print(f'Больше всего мальчиков в классе {find_class_1}')
-
-gerl_max_inclass = max(gerl_in_class)
-find_index_name_class = gerl_in_class.index(gerl_max_inclass)
-find_class_1 = class_name_all[find_index_name_class]
-print(f'Больше всего девочек в классе {find_class_1}')
+# boy_max_inclass = max(boy_in_class)
+# find_index_name_class = boy_in_class.index(boy_max_inclass)
+# find_class_1 = class_name_all[find_index_name_class]
+# print(f'Больше всего мальчиков в классе {find_class_1}')
+#
+# gerl_max_inclass = max(gerl_in_class)
+# find_index_name_class = gerl_in_class.index(gerl_max_inclass)
+# find_class_1 = class_name_all[find_index_name_class]
+# print(f'Больше всего девочек в классе {find_class_1}')
 # Пример вывода:
 # Больше всего мальчиков в классе 3c
 # Больше всего девочек в классе 2a
